@@ -151,7 +151,7 @@
         localStorage_[SETITEM_STR](F366C_STR + "chk1", gifChk[CHECKED_STR]);
         localStorage_[SETITEM_STR](F366C_STR + "chk2", pngChk[CHECKED_STR]);
         localStorage_[SETITEM_STR](F366C_STR + "val", fpscombo[VALUE_STR]);
-        //localStorage_[SETITEM_STR](F366C_STR, e);
+        localStorage_[SETITEM_STR](F366C_STR, e);
     };
 
     // 변환 버튼을 누를 경우 
