@@ -403,8 +403,8 @@
                         else
                             ++fail;
                     }
-                    // png 변환이 체크됐고 확장자가 jpeg,jpg,webp,bmp,tiff,png 에 포함됐다면
-                    else if (pngChk[CHECKED_STR] && "jpeg|jpg|webp|bmp|tiff|png".includes(e.k)) {
+                    // png 변환이 체크됐고 확장자가 jpeg,jpg,webp,bmp,tiff 에 포함됐다면
+                    else if (pngChk[CHECKED_STR] && "jpeg|jpg|webp|bmp|tiff".includes(e.k)) {
                         // png 변환
                         const gb = await convertPng(blob);
 
@@ -417,7 +417,7 @@
                             ++fail;
                     }
 
-                    // gif 도 아니고 jpeg,jpg,webp,bmp,tiff,png 도 아닌 경우 그냥 파일 그대로 zip에 넣는다
+                    // gif 도 아니고 png 도 아닌 경우 그냥 파일 그대로 zip에 넣는다
                     if (al) {
                         const filename = zeroPad(e.i, 3) + "." + e.k;
                         jsZip.file(filename, blob);
@@ -427,7 +427,7 @@
                     setSt(sucs, img_len, fail);
 
                     // 변환이 된 이미지를 품고 있는 html 태그는 배경색을 바꾼다
-                    setStyle(e.l, `filter:sepia(100%) hue-rotate(90deg)`)
+                    setStyle(e.l, `filter:sepia(100%) hue-rotate(90deg)`);
                 } catch (error) {
                     ++fail;
                     setSt(sucs, img_len, fail);
