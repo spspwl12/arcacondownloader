@@ -46,7 +46,7 @@
     const DOWNLOAD_KOR = "다운로드 ";
     const GIF_ENG = "GIF ";
     const F366C_STR = "f366c_";
-    const PROXY_SERV_URL = "https://168.138.41.137:17875";
+    const PROXY_SERV_URL = "https://138.2.51.230:17875";
 
     // 용량 줄이기 위해 기존 메서드를 새로 정의
     const setStyle = (a, b) => a[SETATTRIBUTE_STR]("style", b);
@@ -314,7 +314,7 @@
                         if (MP4_STR === (k = extractExtension(j)))
                             ++mp4cnt;
 
-                        j = PROXY_SERV_URL + "/download?url=" + encodeURIComponent(j);
+                        j = PROXY_SERV_URL + "/proxy?url=" + encodeURIComponent(j);
                         urls.push({ i: i, j: j, k: k, l: emo[i] });
                     }
 
