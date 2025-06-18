@@ -80,6 +80,13 @@
         return checkbox;
     };
 
+    const isDC = () => {
+        if (document.location.hostname.endsWith('dcinside.com'))
+            return true;
+
+        return false;
+    };
+
     let alert_tag = document_.getElementById(F366C_STR);
 
     if (!alert_tag) {
@@ -108,14 +115,8 @@
     const selectLabel = createTagStyle(LABEL_STR, DISPLAY_FLX_ALIGN_CENTER + "margin-bottom:10px;");
     const selectText = createTagStyleText(SPAN_STR, STYLE_MARGIN_SIZE_5PX, GIF_ENG + "프레임");
     const noticehttpscert = createTagStyleText("a", "", "디시콘 다운로드할때 클릭");
-    noticehttpscert[SETATTRIBUTE_STR]("href", "#");
-    noticehttpscert[SETATTRIBUTE_STR]("onclick", `window.open("${PROXY_SERV_URL}", "", "width=400,height=600");`);
-    noticehttpscert[SETATTRIBUTE_STR]("style", STYLE_MARGIN_SIZE_5PX);
-    noticehttpscert[INNERHTML_STR] += "<br>";
     const button1 = createTagStyleText(BUTTON_STR, btnStyleMacro("4CAF50"), "변환");
     const button2 = createTagStyleText(BUTTON_STR, btnStyleMacro("f44336"), "취소");
-
-    append(selectLabel, selectText);
 
     const fpscombo = createTagStyle("select", PADDING_STR + ":5px;");
 
@@ -126,9 +127,15 @@
         append(fpscombo, op);
     });
 
+    noticehttpscert[SETATTRIBUTE_STR]("href", "#");
+    noticehttpscert[SETATTRIBUTE_STR]("onclick", `window.open("${PROXY_SERV_URL}", "", "width=400,height=600");`);
+    noticehttpscert[SETATTRIBUTE_STR]("style", STYLE_MARGIN_SIZE_5PX);
+    noticehttpscert[INNERHTML_STR] += "<br>";
+
+    append(selectLabel, selectText);
     append(selectLabel, fpscombo);
     append(form, selectLabel);
-    append(form, noticehttpscert);
+    isDC() ? append(form, noticehttpscert) : 0;
     append(form, button1);
     append(form, button2);
     append(formContainer, form);
